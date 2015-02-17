@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  sex: MyString
+  multiplication: false
+  bodyLength: 1.5
+  molt: 1
+  buyDate: 2015-01-27
+  status: false
+
+two:
+  name: MyText
+  sex: MyString
+  multiplication: false
+  bodyLength: 1.5
+  molt: 1
+  buyDate: 2015-01-27
+  status: false
