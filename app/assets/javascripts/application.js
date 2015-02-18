@@ -13,8 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
-//= require underscore
-//= require YouAreDaBomb
 //= require turbolinks
 //= require_tree .
-//= require_tree ../coffeescripts
