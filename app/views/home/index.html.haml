@@ -12,46 +12,46 @@
             %i.fa.fa-list.fa-fw
             Specimen List
         .panel-body
-          -#.table-responsive
-          -#  %table.table.table-bordered.table-hover.table-striped
-          -#    %thead
-          -#      %tr
-          -#        %th ID
-          -#        %th Name
-          -#        %th Sex
-          -#        %th Multiplication
-          -#        %th Body lenght
-          -#        %th Molt
-          -#        %th Buy date
-          -#        %th Status
-          -#        %th
-          -#    %tbody
-          -#      - @animals.each do |animal|
-          -#        %tr
-          -#          %td= animal.id
-          -#          %td= animal.name
-          -#          - if animal.sex == "female"
-          -#            %td.female ♀
-          -#          - else
-          -#            %td.male ♂
-          -#          - if animal.multiplication
-          -#            %td
-          -#              %span.glyphicon.glyphicon-ok{style:'color:green'}
-          -#          - else
-          -#            %td
-          -#              %span.glyphicon.glyphicon-remove{style:'color:red'}
-          -#          %td 5
-          -#          %td 13
-          -#          %td 2010-01-03
-          -#          - if animal.status
-          -#            %td
-          -#              %span.glyphicon.glyphicon-ok-circle{style:'color:green'}
-          -#          - else
-          -#            %td
-          -#              %span.glyphicon.glyphicon-banned-circle{style:'color:red'}
-          -#          %td.col-xs-1
-          -#            .btn-group.btn-group-xs.pull-right
-          -#              %button.btn.btn-warning
-          -#                %span.glyphicon.glyphicon-edit
-          -#              %button.btn.btn-danger
-          -#                %span.glyphicon.glyphicon-remove
+          .table-responsive
+            %table.table.table-bordered.table-hover.table-striped
+              %thead
+                %tr
+                  %th ID
+                  %th Name
+                  %th Sex
+                  %th Multiplication
+                  %th Body lenght
+                  %th Molt
+                  %th Buy date
+                  %th Status
+                  %th
+              %tbody
+                - @animals.each do |animal|
+                  %tr
+                    %td= animal.id
+                    %td= animal.name
+                    - if animal.sex == "female"
+                      %td.female ♀
+                    - else
+                      %td.male ♂
+                    - if animal.multiplication
+                      %td
+                        %span.glyphicon.glyphicon-ok{style:'color:green'}
+                    - else
+                      %td
+                        %span.glyphicon.glyphicon-remove{style:'color:red'}
+                    %td 5
+                    %td 13
+                    %td 2010-01-03
+                    - if animal.status
+                      %td
+                        %span.glyphicon.glyphicon-ok-circle{style:'color:green'}
+                    - else
+                      %td
+                        %span.glyphicon.glyphicon-banned-circle{style:'color:red'}
+                    %td.col-xs-1
+                      .btn-group.btn-group-xs.pull-right
+                        %button.btn.btn-warning
+                          %span.glyphicon.glyphicon-edit
+                        %button.btn.btn-danger
+                          %span.glyphicon.glyphicon-remove

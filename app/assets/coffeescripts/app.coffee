@@ -37,6 +37,6 @@ class Aspect
     After(@usecase, "start", => @gui.showTable())
 
 
-$ ->
-  aplication = new TableApp
-  aplication.start()
+#$ ->
+#  aplication = new TableApp
+#  aplication.start()
