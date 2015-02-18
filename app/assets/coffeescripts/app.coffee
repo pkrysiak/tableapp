@@ -16,26 +16,40 @@ class TableApp
 class UseCase
   start: =>
 
+  getAnimals: =>
+  animalsReceived: (animals) =>
 
 class Gui
   constructor: ->
-    animals = [
-      {id: 1, name: "Psalmopoeus Irminia", sex: "male", multiplication: true, bodyLenght: 5, molt: 12, buyDate: "2013-01-01", status: true},
-      {id: 2, name: "Avicularia Versicolor", sex: "female", multiplication: false, bodyLenght: 3, molt: 8, buyDate: "2010-10-21", status: false}
-    ]
-    @table = new components.TableComponent(animals)
 
   configure: =>
 
-  showTable: =>
-    @table.appendMe()
+  showTable: (animals) =>
+    table = new components.TableComponent(animals)
+    table.appendMe()
 
 class ServerSide
 
+  getAnimals: =>
+    $.ajax(
+      type: "GET"
+      url: "/"
+      dataType: "json"
+      success: (postsJson) =>
+        @animalsReceived(postsJson)
+      error: (data) =>
+        @animalsLoadingFailure(data)
+    )
+
+  animalsReceived: (animals) =>
+  animalsReceivingFailure: (data) =>
+    console.error data
+
 class Aspect
   constructor: (@usecase, @gui, @server) ->
-    After(@usecase, "start", => @gui.showTable())
-
+    After(@usecase, "start",                     => @server.getAnimals())
+    After(@server,  "animalsReceived", (animals) => @usecase.animalsReceived(animals))
+    After(@usecase, "animalsReceived", (animals) => @gui.showTable(animals))
 
 $ ->
   aplication = new TableApp
