@@ -26,32 +26,54 @@
                   %th Status
                   %th
               %tbody
-                - @animals.each do |animal|
-                  %tr
-                    %td= animal.id
-                    %td= animal.name
-                    - if animal.sex == "female"
-                      %td.female ♀
-                    - else
-                      %td.male ♂
-                    - if animal.multiplication
-                      %td
-                        %span.glyphicon.glyphicon-ok{style:'color:green'}
-                    - else
-                      %td
-                        %span.glyphicon.glyphicon-remove{style:'color:red'}
-                    %td 5
-                    %td 13
-                    %td 2010-01-03
-                    - if animal.status
-                      %td
-                        %span.glyphicon.glyphicon-ok-circle{style:'color:green'}
-                    - else
-                      %td
-                        %span.glyphicon.glyphicon-banned-circle{style:'color:red'}
-                    %td.col-xs-1
-                      .btn-group.btn-group-xs.pull-right
-                        %button.btn.btn-warning
-                          %span.glyphicon.glyphicon-edit
-                        %button.btn.btn-danger
-                          %span.glyphicon.glyphicon-remove
+                %tr
+                  %td 1
+                  %td Psalmopoeus Irminia
+                  %td.female ♀
+                  %td
+                    %span.glyphicon.glyphicon-remove{style:'color:red'}
+                  %td 5
+                  %td 13
+                  %td 2010-01-03
+                  %td
+                    %span.glyphicon.glyphicon-ok-circle{style:'color:green'}
+                  %td.col-xs-1
+                    .btn-group.btn-group-xs.pull-right
+                      %button.btn.btn-warning
+                        %span.glyphicon.glyphicon-edit
+                      %button.btn.btn-danger
+                        %span.glyphicon.glyphicon-remove
+                %tr
+                  %td 2
+                  %td Psalmopoeus Irminia
+                  %td.male ♂
+                  %td
+                    %span.glyphicon.glyphicon-remove{style:'color:red'}
+                  %td 5
+                  %td 13
+                  %td 2010-01-03
+                  %td
+                    %span.glyphicon.glyphicon-ok-circle{style:'color:green'}
+                  %td.col-xs-1
+                    .btn-group.btn-group-xs.pull-right
+                      %button.btn.btn-warning
+                        %span.glyphicon.glyphicon-edit
+                      %button.btn.btn-danger
+                        %span.glyphicon.glyphicon-remove
+                %tr
+                  %td 3
+                  %td Psalmopoeus Irminia
+                  %td.female ♀
+                  %td
+                    %span.glyphicon.glyphicon-ok{style:'color:green'}
+                  %td 5
+                  %td 13
+                  %td 2010-01-03
+                  %td
+                    %span.glyphicon.glyphicon-ok-circle{style:'color:green'}
+                  %td.col-xs-1
+                    .btn-group.btn-group-xs.pull-right
+                      %button.btn.btn-warning
+                        %span.glyphicon.glyphicon-edit
+                      %button.btn.btn-danger
+                        %span.glyphicon.glyphicon-remove
