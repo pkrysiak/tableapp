@@ -4,10 +4,12 @@
 class components.TableComponent extends components.BaseComponent
   constructor: (@animals) ->
     super("table_template", ".panel-body")
+    @rowComponents = []
 
   configure: =>
     for animal in @animals
-      a = new components.RowComponent(animal)
-      a.appendMe()
+      row = new components.RowComponent(animal)
+      row.appendMe()
+      @rowComponents.push row
 
   dataToRender: =>

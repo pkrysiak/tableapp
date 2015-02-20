@@ -18,6 +18,7 @@ class UseCase
 
   getAnimals: =>
   animalsReceived: (animals) =>
+  deleteAnimal:(row) =>
 
 class Gui
   constructor: ->
@@ -25,8 +26,8 @@ class Gui
   configure: =>
 
   showTable: (animals) =>
-    table = new components.TableComponent(animals)
-    table.appendMe()
+    @table = new components.TableComponent(animals)
+    @table.appendMe()
 
 class ServerSide
 
@@ -45,11 +46,33 @@ class ServerSide
   animalsReceivingFailure: (data) =>
     console.error data
 
+  deleteAnimal: (animal) =>
+    $.ajax(
+      type: "DELETE"
+      url: "/home/" + animal.id
+      dataType: "json"
+      success: (postsJson) =>
+        @animalDeleted(postsJson)
+      error: (data) =>
+        @animalsDeletingFailure(data)
+    )
+
+  animalDeleted: (response) =>
+  animalsDeletingFailure: (data) =>
+    console.error data
+
 class Aspect
   constructor: (@usecase, @gui, @server) ->
     After(@usecase, "start",                     => @server.getAnimals())
     After(@server,  "animalsReceived", (animals) => @usecase.animalsReceived(animals))
     After(@usecase, "animalsReceived", (animals) => @gui.showTable(animals))
+    After(@gui,     "showTable",                 => @intializeButtons())
+    After(@usecase, "deleteAnimal",        (row) => @server.deleteAnimal(row.animal))
+
+  intializeButtons: =>
+    for row in @gui.table.rowComponents
+      do (row) =>
+        After(row, "deleteClicked", => @usecase.deleteAnimal(row))
 
 $ ->
   aplication = new TableApp
